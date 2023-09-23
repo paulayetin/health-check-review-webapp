@@ -1,5 +1,5 @@
 # using node js base image
-FROM nodes: latest
+FROM nodes:14
 #defing working directory
 WORKDIR /app
 # using the root user to execute the container images
@@ -12,5 +12,8 @@ RUN npm install
 COPY  . /app/
 # exposeing port number
 EXPOSE 80
+###health check command
+HEALTHCHECK --interval=12s --timeout=12s \  
+    CMD node health-check.js
 # Executing web application
-CMD ["node", /all/server.js]
+CMD ["node", "/app/server.js]
