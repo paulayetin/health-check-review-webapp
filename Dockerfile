@@ -1,5 +1,5 @@
 # using node js base image
-FROM nodes:14
+FROM node:14
 #defing working directory
 WORKDIR /app
 # using the root user to execute the container images
